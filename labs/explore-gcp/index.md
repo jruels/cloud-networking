@@ -87,7 +87,6 @@ Create a VM instance in the us-central1 region. Selecting a region and zone dete
 2. Click **Create instance**.
 3. Specify the following, and leave the remaining settings as their defaults:
 
- Property      Value (type value or select option as specified 
  Name:          mynet-us-vm                                     
  Region:       us-central1                                    
  Zone:         us-central1-c                                   
@@ -102,7 +101,6 @@ The **Internal IP** should be 10.128.0.2 because 10.128.0.1 is reserved for the 
 Create a VM instance in the europe-west2 region.
 1. Click **Create instance**.
 2. Specify the following, and leave the remaining settings as their defaults:
- Property:      Value (type value or select option as specified)
  Name:          mynet-eu-vm                                      
  Region:        europe-west2                                     
  Zone:          europe-west2-c                                   
