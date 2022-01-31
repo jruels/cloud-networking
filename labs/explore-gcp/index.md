@@ -204,4 +204,4 @@ Remove the **allow-ssh** firewall rule and try to SSH to **mynet-us-vm**.
 
 # Task 4. Review
 In this lab, you explored the default network along with its subnets, routes, and firewall rules. You deleted the default network and determined that you cannot create any VM instances without a VPC network. Thus, you created a new auto mode VPC network with subnets, routes, firewall rules, and two VM instances. Then you tested the connectivity for the VM instances and explored the effects of the firewall rules on connectivity.
-# 
+ 
