@@ -129,15 +129,15 @@ The firewall rules that you created with **mynetwork** allow ingress SSH and ICM
 
 >Alternatively, you can control access to Linux instances by creating SSH keys and editing public SSH key metadata.
 
-3. To test connectivity to **mynet-eu-vm**’s internal IP, run the following command, replacing **mynet-eu-vm**’s internal IP:
+To test connectivity to **mynet-eu-vm**’s internal IP, run the following command, replacing **mynet-eu-vm**’s internal IP:
 
 ```bash
 ping -c 3 <Enter mynet-eu-vm’s internal IP here>
 ```
-### 
+
 You can ping **mynet-eu-vm**’s internal IP because of the **allow-internal** firewall rule.
 
-4. To test connectivity to **mynet-eu-vm**’s external IP, run the following command, replacing **mynet-eu-vm**’s external IP:
+To test connectivity to **mynet-eu-vm**’s external IP, run the following command, replacing **mynet-eu-vm**’s external IP:
 
 ```bash
 ping -c 3 <Enter mynet-eu-vm’s external IP here>
@@ -161,12 +161,12 @@ ping -c 3 <Enter mynet-eu-vm’s internal IP here>
 
 >You can ping **mynet-eu-vm**’s internal IP because of the **allow-internal** firewall rule.
 
-7. To test connectivity to **mynet-eu-vm**’s external IP, run the following command, replacing **mynet-eu-vm**’s external IP:
+To test connectivity to **mynet-eu-vm**’s external IP, run the following command, replacing **mynet-eu-vm**’s external IP:
 
 ```bash
 ping -c 3 <Enter mynet-eu-vm’s external IP here>
 ```
-### 
+ 
 >The **100% packet loss** indicates that you cannot ping **mynet-eu-vm**’s external IP. This is expected because you deleted the **allow-icmp** firewall rule!
 
 ## Remove the allow-internal firewall rules
@@ -185,7 +185,7 @@ ping -c 3 <Enter mynet-eu-vm’s internal IP here>
 
 >The **100% packet loss** indicates that you cannot ping **mynet-eu-vm**’s internal IP. This is expected because you deleted the **allow-internal** firewall rule!
 
-7. Close the SSH terminal:
+Close the SSH terminal:
 ```bash
 exit
 ```
