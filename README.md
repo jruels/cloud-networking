@@ -10,7 +10,7 @@ This site includes the slides and labs for the Cloud Networking class.
 ## Labs
 ### Day 1   
 Lab 0: [Explore Cloud Networking](labs/explore-gcp/)   
-Lab 1: [Build Packer image](labs/packer-build)   
+Lab 1: [Working with VPC Networks](labs/vpc-net/)   
 Lab 2: [Packer Provisioners](labs/packer-provisioner)   
 
 ### Day 2   
