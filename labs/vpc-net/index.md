@@ -2,7 +2,7 @@
 
 # Overview 
 In this lab, you create several VPC networks and VM instances and test connectivity across networks. Specifically, you create two custom mode networks (**managementnet** and **privatenet**) with firewall rules and VM instances, as shown in this network diagram:
-![](index/HsG8XCSGDBfsuKk3IMJVgQscsg2E=%203.png)
+![](index/HsG8XCSGDBfsuKk3IMJVgQscsg2E=%204.png)
 
 The **mynetwork** network, its firewall rules, and two VM instances (**mynet-eu-vm** and **mynet-us-vm**) were created in the previous lab.
 
@@ -17,7 +17,7 @@ In this lab, you learn how to perform the following tasks:
 Create two custom networks, **managementnet** and **privatenet**, along with firewall rules to allow **SSH**, **ICMP**, and **RDP** ingress traffic.
 ## Create the managementnet network
 Create the **managementnet** network using the Cloud Console.
-1. In the Cloud Console, on the **Navigation menu** (![](index/tkgw1TDgj4Q+YKQUW4jUFd0O5OEKlUMBRYbhlCrF0WY=%2013.png)), click **VPC network** > **VPC networks**. Notice the **default** and **mynetwork** networks with their subnets.
+1. In the Cloud Console, on the **Navigation menu** (![](index/tkgw1TDgj4Q+YKQUW4jUFd0O5OEKlUMBRYbhlCrF0WY=%2019.png)), click **VPC network** > **VPC networks**. Notice the **default** and **mynetwork** networks with their subnets.
 Each Google Cloud project starts with the **default** network. In addition, the **mynetwork** network has been created for you as part of your network diagram.
 2. Click **Create VPC Network**.
 3. For **Name**, type **managementnet**
@@ -38,7 +38,7 @@ These commands illustrate that networks and subnets can be created using the gcl
 ## Create the privatenet network 
 Create the **privatenet** network using the `gcloud` command line.
 
-1. In the Cloud Console, click **Activate Cloud Shell** (![](index/8sidHquE=%207.png)).
+1. In the Cloud Console, click **Activate Cloud Shell** (![](index/8sidHquE=%2010.png)).
 2. If prompted, click **Continue**.
 3. Run the following command to create the **privatenet** network:
 
@@ -123,22 +123,22 @@ privatesubnet-us    us-central1              privatenet     172.16.0.0/24
 
 > As expected, the **default** and **mynetwork** networks have subnets in  [each region](https://cloud.google.com/compute/docs/regions-zones/#available) , because they are auto mode networks. The **managementnet** and **privatenet** networks only have the subnets that you created, because they are custom mode networks.  
 
-In the Cloud Console, on the **Navigation menu** (![](index/tkgw1TDgj4Q+YKQUW4jUFd0O5OEKlUMBRYbhlCrF0WY=%2014.png)), click **VPC network** > **VPC networks**. Verify that the same networks and subnets are listed in the Cloud Console.
+In the Cloud Console, on the **Navigation menu** (![](index/tkgw1TDgj4Q+YKQUW4jUFd0O5OEKlUMBRYbhlCrF0WY=%2020.png)), click **VPC network** > **VPC networks**. Verify that the same networks and subnets are listed in the Cloud Console.
 
 ## Create the firewall rules for managementnet
 Create firewall rules to allow **SSH**, **ICMP**, and **RDP** ingress traffic to VM instances on the **managementnet** network.
-1. In the Cloud Console, on the **Navigation menu** (![](index/tkgw1TDgj4Q+YKQUW4jUFd0O5OEKlUMBRYbhlCrF0WY=%2015.png)), click **VPC network** > **Firewall**.
+1. In the Cloud Console, on the **Navigation menu** (![](index/tkgw1TDgj4Q+YKQUW4jUFd0O5OEKlUMBRYbhlCrF0WY=%2021.png)), click **VPC network** > **Firewall**.
 2. Click **Create Firewall Rule**.
 3. Specify the following, and leave the remaining settings as their defaults:
 
-Name:   managementnet-allow-icmp-ssh-rdp
-Network:   managementnet
-Targets:   All instances in the network 
-Source filter:    IP Ranges 
-Source IP Ranges:   0.0.0.0/0
-Protocols and ports:    Specified protocols and ports
+Name:   managementnet-allow-icmp-ssh-rdp   
+Network:   managementnet   
+Targets:   All instances in the network    
+Source filter:    IP Ranges    
+Source IP Ranges:   0.0.0.0/0   
+Protocols and ports:    Specified protocols and ports   
 
-4. for **tcp**, specify ports **22** and **3389**
+4. For **tcp**, specify ports **22** and **3389**
 5. Specify the **icmp** protocol.
 > Make sure to include the **/0** in the **Source IP ranges** to specify all networks.  
 6. Click **EQUIVALENT COMMAND LINE**.
@@ -149,7 +149,7 @@ These commands illustrate that firewall rules can also be created using the `gcl
 ## Create the firewall rules for privatenet
 Create the firewall rules for **privatenet** network using the `gcloud` command line.
 
-1. Return to **Cloud Shell**. If necessary, click **Activate Cloud Shell** (![](index/8sidHquE=%208.png)).
+1. Return to **Cloud Shell**. If necessary, click **Activate Cloud Shell** (![](index/8sidHquE=%2011.png)).
 2. Run the following command to create the **privatenet-allow-icmp-ssh-rdp** firewall rule:
 ```bash
 gcloud compute firewall-rules create privatenet-allow-icmp-ssh-rdp --direction=INGRESS --priority=1000 --network=privatenet --action=ALLOW --rules=icmp,tcp:22,tcp:3389 --source-ranges=0.0.0.0/0
@@ -161,6 +161,7 @@ The output should look like this (**do not copy; this is example output**):
 NAME                           NETWORK     DIRECTION  PRIORITY  ALLOW                 DENY
 privatenet-allow-icmp-ssh-rdp  privatenet  INGRESS    1000      icmp,tcp:22,tcp:3389
 ```
+
 3. Run the following command to list all the firewall rules (sorted by VPC network):
 ```bash
 gcloud compute firewall-rules list --sort-by=NETWORK
@@ -181,7 +182,7 @@ privatenet-allow-icmp-ssh-rdp     privatenet     INGRESS    1000      icmp,tcp:2
 ```
 
 The firewall rules for **mynetwork** network have been created for you. You can define multiple protocols and ports in one firewall rule (**privatenet** and **managementnet**) or spread them across multiple rules (**default** and **mynetwork**).
-4. In the Cloud Console, on the **Navigation menu** (![](index/tkgw1TDgj4Q+YKQUW4jUFd0O5OEKlUMBRYbhlCrF0WY=%2016.png)), click **VPC network** > **Firewall**. Verify that the same firewall rules are listed in the Cloud Console.
+4. In the Cloud Console, on the **Navigation menu** (![](index/tkgw1TDgj4Q+YKQUW4jUFd0O5OEKlUMBRYbhlCrF0WY=%2022.png)), click **VPC network** > **Firewall**. Verify that the same firewall rules are listed in the Cloud Console.
 
 # Task 2. Create VM instances
 Create two VM instances:
@@ -190,22 +191,24 @@ Create two VM instances:
 
 ## Create the managementnet-us-vm instance
 Create the **managementnet-us-vm** instance using the Cloud Console.
-1. In the Cloud Console, on the **Navigation menu** (![](index/tkgw1TDgj4Q+YKQUW4jUFd0O5OEKlUMBRYbhlCrF0WY=%2017.png)), click **Compute Engine** > **VM instances**.
+1. In the Cloud Console, on the **Navigation menu** (![](index/tkgw1TDgj4Q+YKQUW4jUFd0O5OEKlUMBRYbhlCrF0WY=%2023.png)), click **Compute Engine** > **VM instances**.
 **mynet-eu-vm** and **mynet-us-vm** have been created for you as part of your network diagram.
 2. Click **Create instance**.
 3. Specify the following, and leave the remaining settings as their defaults:
 
-Name:   managementnet-us-vm
-Region:   us-central1
-Zone:   us-central1-c
-Series:   N1
-Machine type:   1vCPU (3.75 GB memory, n1-standard-1)
+Name:   managementnet-us-vm   
+Region:   us-central1   
+Zone:   us-central1-c   
+Series:   N1   
+Machine type:   1vCPU (3.75 GB memory, n1-standard-1)   
+
 4. Click **Management, security, disks, networking, sole tenancy**.
 5. Click **Networking**
 6. Click **Network interfaces**, click the pencil icon to edit.
 7. Specify the following, and leave the remaining settings as their defaults:
-Network:   managementnet
-Subnetwork:   managementsubnet-us
+
+Network:   managementnet   
+Subnetwork:   managementsubnet-us   
 
 > The subnets available for selection are restricted to those in the selected region (us-central1).  
 8. Click **Done**
@@ -217,7 +220,7 @@ This illustrates that VM instances can also be created using the `gcloud` comman
 ## Create the privatenet-us-vm instance
 
 Create the **privatenet-us-vm** instance using the `gcloud` command line.
-1. Return to **Cloud Shell**. If necessary, click **Activate Cloud Shell** (![](index/8sidHquE=%209.png)).
+1. Return to **Cloud Shell**. If necessary, click **Activate Cloud Shell** (![](index/8sidHquE=%2012.png)).
 2. Run the following command to create the **privatenet-us-vm** instance:
 ```bash
 gcloud compute instances create privatenet-us-vm --zone=us-central1-c --machine-type=n1-standard-1 --subnet=privatesubnet-us
@@ -228,6 +231,7 @@ The output should look like this (**do not copy; this is example output**):
 NAME              ZONE           MACHINE_TYPE   PREEMPTIBLE  INTERNAL_IP  EXTERNAL_IP    STATUS
 privatenet-us-vm  us-central1-c  n1-standard-1               172.16.0.2   35.184.221.40  RUNNING
 ```
+
 3. Run the following command to list all the VM instances (sorted by zone):
 ```bash
 gcloud compute instances list --sort-by=ZONE
@@ -242,7 +246,7 @@ mynet-us-vm          us-central1-c   n1-standard-1               10.128.0.2   35
 privatenet-us-vm     us-central1-c   n1-standard-1               172.16.0.2   35.184.221.40   RUNNING
 ```
 
-4. In the Cloud Console, on the **Navigation menu** (![](index/tkgw1TDgj4Q+YKQUW4jUFd0O5OEKlUMBRYbhlCrF0WY=%2018.png)), click **Compute Engine** > **VM instances**. Verify that the VM instances are listed in the Cloud Console.
+4. In the Cloud Console, on the **Navigation menu** (![](index/tkgw1TDgj4Q+YKQUW4jUFd0O5OEKlUMBRYbhlCrF0WY=%2024.png)), click **Compute Engine** > **VM instances**. Verify that the VM instances are listed in the Cloud Console.
 5. For **Columns**, select **Network**.
 
 There are three instances in **us-central1-c** and one instance in **europe-west3-c**. However, these instances are spread across three VPC networks (**managementnet**, **mynetwork**, and **privatenet**), with no instance in the same zone and network as another. In the next task, you explore the effect this has on internal connectivity.
@@ -316,11 +320,11 @@ Create the **vm-appliance** instance with network interfaces in **privatesubnet-
 2. Click **Create instance**.
 3. Specify the following, and leave the remaining settings as their defaults:
 
-Name:   vm-appliance
-Region:    us-central1
-Zone:   us-central1-c
-Series:   N1
-Machine type:   4vCPUs (15 GB memory, n1-standard-4)
+Name:   vm-appliance   
+Region:    us-central1   
+Zone:   us-central1-c   
+Series:   N1   
+Machine type:   4vCPUs (15 GB memory, n1-standard-4)   
 
 > The number of interfaces allowed in an instance is dependent on the instance’s machine type and the number of vCPUs. The n1-standard-4 allows up to 4 network interfaces.   
 4. Click **Management, security, disks, networking, sole tenancy**.
@@ -328,21 +332,21 @@ Machine type:   4vCPUs (15 GB memory, n1-standard-4)
 6. For Network interfaces, click the pencil icon to edit.
 7. Specify the following, and leave the remaining settings as their defaults:
 
-Network:   privatenet
-Subnetwork:   privatesubnet-us
-8. Click **Done**.
-9. Click **Add network interface**.
-10. Specify the following, and leave the remaining settings as their defaults:
+Network:   privatenet   
+Subnetwork:   privatesubnet-us   
+8. Click **Done**.   
+9. Click **Add network interface**.   
+10. Specify the following, and leave the remaining settings as their defaults:   
 
-Network:   managementnet
-Subnetwork:   managementsubnet-us
+Network:   managementnet   
+Subnetwork:   managementsubnet-us   
 
 11. Click **Done**.
 12. Click **Add network interface**.
 13. Specify the following, and leave the remaining settings as their defaults:
 
-Network:   mynetwork
-Subnetwork:   mynetwork
+Network:   mynetwork   
+Subnetwork:   mynetwork   
 14. Click **Done**.
 15. Click **Create**.
 
