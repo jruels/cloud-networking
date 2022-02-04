@@ -32,10 +32,13 @@ In this task, you create a bucket. However, the text also helps you become famil
 
 ## Navigate to the Storage service and create the bucket
 
-1. In the Cloud Console, on the **Navigation menu** (![Navigation menu](https://cdn.qwiklabs.com/tkgw1TDgj4Q%2BYKQUW4jUFd0O5OEKlUMBRYbhlCrF0WY%3D)), click **Cloud Storage > Browser**.
-2. Click **Create bucket**.
-3. For **Name**, type a globally unique bucket name; leave all other values as their defaults.
-4. Click **Create**.
+* In the Cloud Console, on the **Navigation menu** (![Navigation menu](https://cdn.qwiklabs.com/tkgw1TDgj4Q%2BYKQUW4jUFd0O5OEKlUMBRYbhlCrF0WY%3D)), click **Cloud Storage > Browser**.
+
+* Click **Create bucket**.
+
+* For **Name**, type a globally unique bucket name; leave all other values as their defaults.
+
+* Click **Create**.
 
 ### Explore features in the Cloud Console
 
@@ -79,9 +82,9 @@ There are three buttons on the far right of the Cloud Shell toolbar:
 - **Open in a new window:** Having Cloud Shell at the bottom of the Cloud Console is useful when you are issuing individual commands. However, sometimes you will be editing files or want to see the full output of a command. For these uses, this button pops the Cloud Shell out into a full-sized terminal window.
 - **Close terminal:** This button closes Cloud Shell. Every time you close Cloud Shell, the virtual machine is reset and all machine context is lost.
 
-2. Close Cloud Shell now.
+* Close Cloud Shell now.
 
-   
+
 
 # Task 3. Use Cloud Shell to create a Cloud Storage bucket
 
@@ -147,26 +150,27 @@ In this section you will learn a best practice for using Cloud Shell. The gcloud
 
 ## Identify available regions
 
-1. Open Cloud Shell from the Cloud Console. Note that this allocates a new VM for you.
-2. To list available regions, execute the following command:
+* Open Cloud Shell from the Cloud Console. Note that this allocates a new VM for you.
+
+* To list available regions, execute the following command:
 
 ```
 gcloud compute regions list
 ```
 
-3. Select a region from the list and note the value in any text editor. This region will now be referred to as [YOUR_REGION] in the remainder of the lab.
+* Select a region from the list and note the value in any text editor. This region will now be referred to as [YOUR_REGION] in the remainder of the lab.
 
 
 
 ## Create and verify an environment variable
 
-1. Create an environment variable and replace [YOUR_REGION] with the region you selected in the previous step:
+* Create an environment variable and replace [YOUR_REGION] with the region you selected in the previous step:
 
 ```
 INFRACLASS_REGION=[YOUR_REGION]
 ```
 
-2. Verify it with echo:
+* Verify it with echo:
 
 ```
 echo $INFRACLASS_REGION
@@ -182,37 +186,37 @@ You can use environment variables like this in gcloud commands to reduce the opp
 
 ## Append the environment variable to a file
 
-1. Create a subdirectory for materials used in this lab:
+* Create a subdirectory for materials used in this lab:
 
 ```
 mkdir infraclass
 ```
 
-2. Create a file called `config` in the infraclass directory:
+* Create a file called `config` in the infraclass directory:
 
 ```
 touch infraclass/config
 ```
 
-3. Append the value of your Region environment variable to the `config` file:
+* Append the value of your Region environment variable to the `config` file:
 
 ```
 echo INFRACLASS_REGION=$INFRACLASS_REGION >> ~/infraclass/config
 ```
 
-4. Create a second environment variable for your Project ID, replacing [YOUR_PROJECT_ID] with your Project ID. You can find the project ID on the Cloud Console Home page.
+* Create a second environment variable for your Project ID, replacing [YOUR_PROJECT_ID] with your Project ID. You can find the project ID on the Cloud Console Home page.
 
 ```
 INFRACLASS_PROJECT_ID=[YOUR_PROJECT_ID]
 ```
 
-5. Append the value of your Project ID environment variable to the `config` file:
+* Append the value of your Project ID environment variable to the `config` file:
 
 ```
 echo INFRACLASS_PROJECT_ID=$INFRACLASS_PROJECT_ID >> ~/infraclass/config
 ```
 
-6. Use the source command to set the environment variables, and use the echo command to verify that the project variable was set:
+* Use the source command to set the environment variables, and use the echo command to verify that the project variable was set:
 
 ```
 source infraclass/config
@@ -223,7 +227,7 @@ echo $INFRACLASS_PROJECT_ID
 
 > This gives you a method to create environment variables and to easily recreate them if the Cloud Shell is recycled or reset. However, you will still need to remember to issue the source command each time Cloud Shell is opened. In the next step, you modify the .profile file so that the source command is issued automatically every time a terminal to Cloud Shell is opened.
 
-7. Close and re-open Cloud Shell. Then issue the echo command again:
+* Close and re-open Cloud Shell. Then issue the echo command again:
 
 ```
 echo $INFRACLASS_PROJECT_ID
@@ -231,23 +235,25 @@ echo $INFRACLASS_PROJECT_ID
 
 There will be no output because the environment variable no longer exists.
 
+
+
 ## Modify the bash profile and create persistence
 
 ```
 nano .profile
 ```
 
-1. Add the following line to the end of the file:
+* Add the following line to the end of the file:
 
 ```
 source infraclass/config
 ```
 
-2. Press **Ctrl+O**, **ENTER** to save the file, and then press **Ctrl+X** to exit nano.
+* Press **Ctrl+O**, **ENTER** to save the file, and then press **Ctrl+X** to exit nano.
 
-3. Close and then re-open Cloud Shell to reset the VM.
+* Close and then re-open Cloud Shell to reset the VM.
 
-4. Use the echo command to verify that the variable is still set:
+* Use the echo command to verify that the variable is still set:
 
 ```
 echo $INFRACLASS_PROJECT_ID
