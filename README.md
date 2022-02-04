@@ -1,19 +1,18 @@
 # Cloud Networking
 
-This site includes the slides and labs for the Cloud Networking class.
+This site includes the labs for the Cloud Networking class.
 
 
 ## Course Content   
-[Slides day 1](https://www.dropbox.com/s/rzq7yslur4cvfer/Packer%20and%20Terraform-day1.pdf?dl=0)   
-[Slides day 2](https://www.dropbox.com/s/mo3rrhu8bejyn4y/Packer%20and%20Terraform-day2.pdf?dl=0)   
+Instructor will provide slides 
 
 ## Labs
 ### Day 1   
 Lab 0: [GCP Portal and Cloud Shell](labs/gcp-cloud-shell/)   
 Lab 1: [Explore Cloud Networking](labs/explore-gcp/)   
 Lab 2: [Working with VPC Networks](labs/vpc-net/)   
-Lab 3: [Configure an HTTP load balancer with Autoscaling](labs/gcp-lb-autoscaling/)   
 
 ### Day 2   
-Lab 3: [Create a resource](labs/tf-first-instance)   
-Lab 4: [Variables and output](labs/tf-variables-and-output)   
+Lab 3: [VPC Security](labs/vpc-access/)   
+Lab 4: [Configure an HTTP load balancer with Autoscaling](labs/gcp-lb-autoscaling/)   
+Lab 5: [Automating Network Management](labs/gcp-tf/)   
