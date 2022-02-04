@@ -10,8 +10,9 @@ This site includes the slides and labs for the Cloud Networking class.
 ## Labs
 ### Day 1   
 Lab 0: [GCP Portal and Cloud Shell](labs/gcp-cloud-shell/)   
-Lab 0: [Explore Cloud Networking](labs/explore-gcp/)   
-Lab 1: [Working with VPC Networks](labs/vpc-net/)   
+Lab 1: [Explore Cloud Networking](labs/explore-gcp/)   
+Lab 2: [Working with VPC Networks](labs/vpc-net/)   
+Lab 3: [Configure an HTTP load balancer with Autoscaling](labs/gcp-lb-autoscaling/)   
 
 ### Day 2   
 Lab 3: [Create a resource](labs/tf-first-instance)   
