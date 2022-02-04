@@ -89,8 +89,9 @@ There are three buttons on the far right of the Cloud Shell toolbar:
 
 ## Create a second bucket and verify in the Cloud Console
 
-1. Open Cloud Shell again.
-2. Use the gsutil command to create another bucket. Replace <BUCKET_NAME> with a globally unique name (**you can append a 2 to the globally unique bucket name you used previously**):
+* Open Cloud Shell again.
+
+* Use the gsutil command to create another bucket. Replace <BUCKET_NAME> with a globally unique name (**you can append a 2 to the globally unique bucket name you used previously**):
 
 ```
 gsutil mb gs://<BUCKET_NAME>
@@ -98,8 +99,9 @@ gsutil mb gs://<BUCKET_NAME>
 
 
 
-1. If prompted, click **Authorize**.
-2. In the Cloud Console, on the **Navigation menu** (![Navigation menu](https://cdn.qwiklabs.com/tkgw1TDgj4Q%2BYKQUW4jUFd0O5OEKlUMBRYbhlCrF0WY%3D)), click **Cloud Storage > Browser**, or click **Refresh** if you are already in the Storage browser. The second bucket should be displayed in the **Buckets** list.
+* If prompted, click **Authorize**.
+
+* In the Cloud Console, on the **Navigation menu** (![Navigation menu](https://cdn.qwiklabs.com/tkgw1TDgj4Q%2BYKQUW4jUFd0O5OEKlUMBRYbhlCrF0WY%3D)), click **Cloud Storage > Browser**, or click **Refresh** if you are already in the Storage browser. The second bucket should be displayed in the **Buckets** list.
 
 > You have performed equivalent actions using the Cloud Console and Cloud Shell. You created a bucket using the Cloud Console and another bucket using Cloud Shell.
 
@@ -111,15 +113,17 @@ gsutil mb gs://<BUCKET_NAME>
 
 ## Upload a file 
 
-1. Open Cloud Shell.
-2. Click the **More** button (![More](https://cdn.qwiklabs.com/2ufrDePg5inKfodUoT2Kib4oE7II7emYn%2BypCC85FjQ%3D)) in the Cloud Shell toolbar to display further options.
-3. Click **Upload**. Upload any file from your local machine to the Cloud Shell VM. This file will be referred to as [MY_FILE].
+* Open Cloud Shell.
+
+* Click the **More** button (![More](https://cdn.qwiklabs.com/2ufrDePg5inKfodUoT2Kib4oE7II7emYn%2BypCC85FjQ%3D)) in the Cloud Shell toolbar to display further options.
+
+* Click **Upload**. Upload any file from your local machine to the Cloud Shell VM. This file will be referred to as [MY_FILE].
 
 <img src="https://cdn.qwiklabs.com/oJbmK6VrlyvZLPw5WdM0HJcPpuycYDtzan%2F5HL6FHjE%3D" alt="img" style="zoom:50%;" />
 
-4. In Cloud Shell, type `ls` to confirm that the file was uploaded.
+* In Cloud Shell, type `ls` to confirm that the file was uploaded.
 
-5. Copy the file into one of the buckets you created earlier in the lab. Replace [MY_FILE] with the file you uploaded and [BUCKET_NAME] with one of your bucket names:
+* Copy the file into one of the buckets you created earlier in the lab. Replace [MY_FILE] with the file you uploaded and [BUCKET_NAME] with one of your bucket names:
 
 ```
 gsutil cp [MY_FILE] gs://[BUCKET_NAME]
@@ -131,8 +135,9 @@ If your filename has whitespaces, be sure to place single quotes around the file
 
 
 
-6. Explore the options available in Cloud Shell by clicking on different icons in the Cloud Shell toolbar.
-7. Close all the Cloud Shell sessions.
+* Explore the options available in Cloud Shell by clicking on different icons in the Cloud Shell toolbar.
+
+* Close all the Cloud Shell sessions.
 
 # Task 5: Create a persistent state in Cloud Shell
 
