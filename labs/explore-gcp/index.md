@@ -86,7 +86,7 @@ Replicate the **default** network by creating an auto mode network.
 Create a VM instance in the us-central1 region. Selecting a region and zone determines the subnet and assigns the internal IP address from the subnet’s IP address range.
 1. On the **Navigation menu** (![](index/tkgw1TDgj4Q+YKQUW4jUFd0O5OEKlUMBRYbhlCrF0WY=%2012.png)), click **Compute Engine** > **VM instances**.
 2. Click **Create instance**.
-3. Specify the following, and leave the remaining settings as their defaults:
+3. Specify the following, and leave the remaining settings as their defaults:   
 Name:         mynet-us-vm                                   
 Region:       us-central1                                     
 Zone          us-central1-c                                   
@@ -100,7 +100,7 @@ The **Internal IP** should be 10.128.0.2 because 10.128.0.1 is reserved for the 
 ## Create a VM instance in europe-west2
 Create a VM instance in the europe-west2 region.
 1. Click **Create instance**.
-2. Specify the following, and leave the remaining settings as their defaults:
+2. Specify the following, and leave the remaining settings as their defaults:   
 Name:         mynet-eu-vm                                      
 Region:       europe-west2                                     
 Zone:         europe-west2-c                                   
