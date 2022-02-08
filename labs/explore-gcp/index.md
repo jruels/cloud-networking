@@ -87,13 +87,11 @@ Create a VM instance in the us-central1 region. Selecting a region and zone dete
 1. On the **Navigation menu** (![](index/tkgw1TDgj4Q+YKQUW4jUFd0O5OEKlUMBRYbhlCrF0WY=%2012.png)), click **Compute Engine** > **VM instances**.
 2. Click **Create instance**.
 3. Specify the following, and leave the remaining settings as their defaults:
-| Property     | Value (type value or select option as specified |
-|--------------|-------------------------------------------------|
-| Name         | mynet-us-vm                                     |
-| Region       | us-central1                                     |
-| Zone         | us-central1-c                                   |
-| Series       | N1                                              |
-| Machine type | f1-micro (1vCPU, 614 MB memory                  |
+Name:         mynet-us-vm                                   
+Region:       us-central1                                     
+Zone          us-central1-c                                   
+Series        N1                                              
+Machine type: f1-micro (1vCPU, 614 MB memory                  
 4. Click **Create**.
 5. Verify that the **Internal IP** for the new instance was assigned from the IP address range for the subnet in **us-central1** (10.128.0.0/20).
 
@@ -103,13 +101,11 @@ The **Internal IP** should be 10.128.0.2 because 10.128.0.1 is reserved for the 
 Create a VM instance in the europe-west2 region.
 1. Click **Create instance**.
 2. Specify the following, and leave the remaining settings as their defaults:
-| Property     | Value (type value or select option as specified) |
-|--------------|--------------------------------------------------|
-| Name         | mynet-eu-vm                                      |
-| Region       | europe-west2                                     |
-| Zone         | europe-west2-c                                   |
-| Series       | N1                                               |
-| Machine type | f1-micro (1vCPU, 614 MB memory)                  |
+Name:         mynet-eu-vm                                      
+Region:       europe-west2                                     
+Zone:         europe-west2-c                                   
+Series:       N1                                               
+Machine type: f1-micro (1vCPU, 614 MB memory)                  
 
 3. Click **Create**.
 4. Verify that the **Internal IP** for the new instance was assigned from the IP address range for the subnet in **europe-west2** (10.154.0.0/20).
